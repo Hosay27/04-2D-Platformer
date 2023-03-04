@@ -1,7 +1,6 @@
-# 04-2D-Platformer
+# Project Name
 
-A 2D Platformer
-date
+Context and date
 
 Description
 
@@ -13,4 +12,3 @@ Which features you included
 ## Future Development
 
 ## Created by
-Jose Bautista-Martinez
