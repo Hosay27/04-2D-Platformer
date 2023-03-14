@@ -20,7 +20,8 @@ Which features you included
 
 - [Level 3 Music] https://opengameart.org/content/bellgrave
 
-- [Enemy Death Sounds] https://opengameart.org/content/80-cc0-creture-sfx-2
+- [Enemy Sound Effects] https://opengameart.org/content/80-cc0-creture-sfx-2, https://opengameart.org/content/bow-arrow-shot
+
 
 
 ## Future Development
