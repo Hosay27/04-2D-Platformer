@@ -22,7 +22,7 @@ Which features you included
 
 - [Enemy Sound Effects] https://opengameart.org/content/80-cc0-creture-sfx-2, https://opengameart.org/content/bow-arrow-shot
 
-
+- [Battle Theme] https://opengameart.org/content/8-bit-battle-theme-famitracker
 
 ## Future Development
 
