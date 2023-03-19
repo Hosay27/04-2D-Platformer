@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/8BitCave.mp3-6017841eeb498e556b2bf64c55cbf674.mp3str"
+
+[deps]
+
+source_file="res://Assets/8BitCave.mp3"
+dest_files=[ "res://.import/8BitCave.mp3-6017841eeb498e556b2bf64c55cbf674.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

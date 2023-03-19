@@ -1,0 +1,153 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://StateMachine/Die.gd" type="Script" id=1]
+[ext_resource path="res://StateMachine/Goblin_Attack.gd" type="Script" id=2]
+[ext_resource path="res://StateMachine/Goblin_Move.gd" type="Script" id=3]
+[ext_resource path="res://StateMachine/StateMachine.gd" type="Script" id=4]
+[ext_resource path="res://Enemies/Skeleton.gd" type="Script" id=5]
+[ext_resource path="res://Player/Hurt.tres" type="Animation" id=6]
+[ext_resource path="res://Assets/skeleton_die.png" type="Texture" id=7]
+[ext_resource path="res://Assets/skeleton.png" type="Texture" id=8]
+[ext_resource path="res://Assets/skeleton_attack.png" type="Texture" id=9]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 100, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 200, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 300, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 100, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 200, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 300, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 400, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 500, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 100, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 200, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 300, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 400, 0, 100, 100 )
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 4 ), SubResource( 4 ) ],
+"loop": false,
+"name": "Attack",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": false,
+"name": "Die",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
+"loop": true,
+"name": "Move",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 28.5, 49.5 )
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 28.5, 52.5 )
+
+[node name="Skeleton" type="KinematicBody2D" groups=["enemy"]]
+script = ExtResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 16 )
+animation = "Attack"
+
+[node name="Effect" type="AnimationPlayer" parent="AnimatedSprite"]
+anims/Hurt = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 5.5, 0.5 )
+shape = SubResource( 17 )
+
+[node name="Sight" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 450, 0 )
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource( 2 )
+
+[node name="Attack" type="Timer" parent="StateMachine/Attack"]
+wait_time = 0.9
+
+[node name="Die" type="Node" parent="StateMachine"]
+script = ExtResource( 1 )
+
+[node name="Move" type="Node" parent="StateMachine"]
+script = ExtResource( 3 )
+
+[node name="Above_and_Below" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Above_and_Below"]
+position = Vector2( 5.5, -2.5 )
+shape = SubResource( 18 )
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="timeout" from="StateMachine/Attack/Attack" to="StateMachine/Attack" method="_on_Attack_timeout"]
+[connection signal="body_entered" from="Above_and_Below" to="." method="_on_Above_and_Below_body_entered"]

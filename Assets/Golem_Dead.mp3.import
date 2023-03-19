@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Golem_Dead.mp3-d54bddf00cbd893aa86494d4dc572bd5.mp3str"
+
+[deps]
+
+source_file="res://Assets/Golem_Dead.mp3"
+dest_files=[ "res://.import/Golem_Dead.mp3-d54bddf00cbd893aa86494d4dc572bd5.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var Player = load("res://Player/Player.tscn")
-var initial_position = Vector2(200,150)
+export var initial_position = Vector2(0,0)
 
 func _process(_delta):
 	if not has_node("Player"):

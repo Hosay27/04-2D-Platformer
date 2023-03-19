@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/HealthBar.tres" type="Theme" id=1]
+
+[node name="Health" type="ProgressBar"]
+margin_left = 121.0
+margin_top = 546.0
+margin_right = 521.0
+margin_bottom = 596.0
+theme = ExtResource( 1 )
+max_value = 10.0
+value = 10.0
+percent_visible = false

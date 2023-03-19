@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Catch The Mystery.mp3-abbaffd92d1169db4f578a80d2e41342.mp3str"
+
+[deps]
+
+source_file="res://Assets/Catch The Mystery.mp3"
+dest_files=[ "res://.import/Catch The Mystery.mp3-abbaffd92d1169db4f578a80d2e41342.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

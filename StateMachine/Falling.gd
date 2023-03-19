@@ -24,5 +24,5 @@ func physics_process(_delta):
 		player.double_jumped = true
 		SM.set_state("Jumping")
 		
-	player.velocity += player.move_speed * player.move_vector() + player.gravity
+	player.velocity += player.move_speed * player.move_vector() + player.gravity + Vector2(0,-30)
 	player.move_and_slide(player.velocity, Vector2.UP)

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Golem_Attack.mp3-b2f98186e2280e3aaf5a0d17665ffc3a.mp3str"
+
+[deps]
+
+source_file="res://Assets/Golem_Attack.mp3"
+dest_files=[ "res://.import/Golem_Attack.mp3-b2f98186e2280e3aaf5a0d17665ffc3a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

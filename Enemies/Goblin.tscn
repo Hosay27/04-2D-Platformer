@@ -1,0 +1,134 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Enemies/Goblin.gd" type="Script" id=1]
+[ext_resource path="res://StateMachine/Goblin_Attack.gd" type="Script" id=2]
+[ext_resource path="res://StateMachine/StateMachine.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Goblin_Die.png" type="Texture" id=4]
+[ext_resource path="res://StateMachine/Goblin_Die.gd" type="Script" id=5]
+[ext_resource path="res://StateMachine/Goblin_Move.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Goblin_Move.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Goblin_Attack.png" type="Texture" id=8]
+[ext_resource path="res://Player/Hurt.tres" type="Animation" id=11]
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 70, 0, 70, 150 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 140, 0, 70, 150 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 0, 150, 70, 150 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 110, 105 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 110, 0, 110, 105 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 105, 110, 105 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 74, 105 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 74, 0, 74, 105 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 148, 0, 74, 105 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 105, 74, 105 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 74, 105, 74, 105 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ), SubResource( 16 ) ],
+"loop": true,
+"name": "Attack",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
+"loop": true,
+"name": "Die",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"loop": true,
+"name": "Move",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 22.5, 52.5 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 22.5, 55.25 )
+
+[node name="Goblin" type="KinematicBody2D" groups=["enemy"]]
+script = ExtResource( 1 )
+walking = 175
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 4 )
+animation = "Move"
+
+[node name="Effect" type="AnimationPlayer" parent="AnimatedSprite"]
+anims/Hurt = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -3.5, -0.5 )
+shape = SubResource( 5 )
+
+[node name="Sight" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 400, 0 )
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource( 2 )
+
+[node name="Attack" type="Timer" parent="StateMachine/Attack"]
+wait_time = 0.9
+
+[node name="Move" type="Node" parent="StateMachine"]
+script = ExtResource( 6 )
+
+[node name="Die" type="Node" parent="StateMachine"]
+script = ExtResource( 5 )
+
+[node name="Above_and_Below" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Above_and_Below"]
+position = Vector2( -3.5, -3.75 )
+shape = SubResource( 6 )
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="timeout" from="StateMachine/Attack/Attack" to="StateMachine/Attack" method="_on_Attack_timeout"]
+[connection signal="body_entered" from="Above_and_Below" to="." method="_on_Above_and_Below_body_entered"]
