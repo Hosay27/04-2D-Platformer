@@ -18,4 +18,4 @@ func physics_process(_delta):
 
 func _on_Attack_timeout():
 	if SM.state_name == "Attack":
-		var target = enemy.attack_target()
+		enemy.attack_target()

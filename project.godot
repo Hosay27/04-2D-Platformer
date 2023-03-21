@@ -18,6 +18,10 @@ config/name="Project 04 2D Platformer"
 run/main_scene="res://UI/Main_Menu.tscn"
 config/icon="res://icon.png"
 
+[audio]
+
+default_bus_layout=""
+
 [autoload]
 
 Global="*res://Global.gd"

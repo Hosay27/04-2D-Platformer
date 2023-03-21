@@ -20,6 +20,6 @@ func _on_Timer_timeout():
 	var attack = Attack.instance()
 	attack.position = global_position
 	attack.position.x += 40*direction
-	attack.direction = direction
+	#attack.direction = direction
 	get_node("/root/Game/Attack_Container").add_child(attack)
 	$Timer.start()

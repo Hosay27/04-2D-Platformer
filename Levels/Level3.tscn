@@ -652,12 +652,6 @@ position = Vector2( 1324, 1368 )
 [node name="Lantern9" parent="Lights" instance=ExtResource( 14 )]
 position = Vector2( 1677, 1377 )
 
-[node name="Lantern11" parent="Lights" instance=ExtResource( 14 )]
-position = Vector2( 1523, 920 )
-
-[node name="Lantern12" parent="Lights" instance=ExtResource( 14 )]
-position = Vector2( 2134, 969 )
-
 [node name="Lantern10" parent="Lights" instance=ExtResource( 14 )]
 position = Vector2( 2251, 1372 )
 

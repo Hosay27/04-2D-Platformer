@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Camera.gd" type="Script" id=1]
 [ext_resource path="res://StateMachine/Player_Container.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Enemies/Goblin.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/die_01.ogg" type="AudioStream" id=9]
 [ext_resource path="res://Assets/shoot.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Enemies/Slime.tscn" type="PackedScene" id=11]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Background.png 0"
@@ -259,11 +260,15 @@ initial_position = Vector2( 985, 490 )
 
 [node name="Enemies" type="Node2D" parent="."]
 script = ExtResource( 6 )
-gob_spawn = Vector2( 450, 0 )
+slime_spawn = Vector2( 0, 100 )
 
 [node name="Goblin" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( 467, 30 )
+position = Vector2( 508, 140 )
 path = [ Vector2( 690, -6 ), Vector2( 1258, -6 ) ]
+
+[node name="Slime" parent="Enemies" instance=ExtResource( 11 )]
+position = Vector2( 1277, 831 )
+path = [ Vector2( 683, 826 ), Vector2( 1277, 826 ) ]
 
 [node name="Attack_Container" type="Node2D" parent="."]
 

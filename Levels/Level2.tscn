@@ -376,7 +376,6 @@ tile_data = PoolIntArray( -1900545, 5, 0, -1966080, 5, 0, -1966079, 5, 0, -19660
 position = Vector2( 152, 29 )
 scale = Vector2( 2.2, 2.2 )
 frames = SubResource( 28 )
-frame = 2
 playing = true
 
 [node name="Player_Container" type="Node2D" parent="."]
@@ -574,7 +573,6 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Portal2"]
 frames = SubResource( 22 )
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal2"]
