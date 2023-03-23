@@ -1,8 +1,15 @@
 # Project Name
 
 Context and date
+2D Platformer made with Godot
+25 March 2023
 
 Description
+-A and D to move left and right
+
+- W to jump, hold it for a higher jump
+
+- Q for a fireball and E for an icicle to damage enemies
 
 ## Implementation
 Which features you included
@@ -23,6 +30,7 @@ Which features you included
 - [Battle Theme] https://opengameart.org/content/8-bit-battle-theme-famitracker
 
 ## Future Development
+none
 
 ## Created by
 Jose Bautista-Martinez
