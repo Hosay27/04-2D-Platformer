@@ -20,6 +20,8 @@ Which features you included
 
 - [Jump Sound Effect] https://opengameart.org/content/8-bit-platformer-sfx
 
+- [Main Menu Music] https://opengameart.org/content/20-excellent-8-bit-loops
+
 - [Level 1 Music] https://opengameart.org/content/happy-adventure-loop
 
 - [Level 2 Music] https://opengameart.org/content/8-bit-cave-loop
