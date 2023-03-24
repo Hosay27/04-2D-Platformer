@@ -1,10 +1,10 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Enemies/Enemies.gd" type="Script" id=1]
 [ext_resource path="res://Camera.gd" type="Script" id=2]
 [ext_resource path="res://Levels/Portal.gd" type="Script" id=3]
 [ext_resource path="res://StateMachine/Player_Container.gd" type="Script" id=4]
-[ext_resource path="res://Assets/bellgrave.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Assets/CrEEP.mp3" type="AudioStream" id=5]
 [ext_resource path="res://Assets/Portal3.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Graveyard_Platforms.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Graveyard_Background.png" type="Texture" id=8]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Hazards/Lantern.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Enemies/Reaper.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Coin/Coin.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Assets/Jump.wav" type="AudioStream" id=17]
 
 [sub_resource type="TileSet" id=29]
 0/name = "Graveyard_Background.png 0"
@@ -368,22 +369,22 @@ points = PoolVector2Array( 0, 0, 50, 0, 50, 50, 0, 50 )
 [sub_resource type="AtlasTexture" id=36]
 flags = 4
 atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 60, 70 )
+region = Rect2( 0, 0, 57, 56 )
 
 [sub_resource type="AtlasTexture" id=37]
 flags = 4
 atlas = ExtResource( 6 )
-region = Rect2( 60, 0, 60, 70 )
+region = Rect2( 57, 0, 57, 56 )
 
 [sub_resource type="AtlasTexture" id=38]
 flags = 4
 atlas = ExtResource( 6 )
-region = Rect2( 0, 70, 60, 70 )
+region = Rect2( 114, 0, 57, 56 )
 
 [sub_resource type="AtlasTexture" id=39]
 flags = 4
 atlas = ExtResource( 6 )
-region = Rect2( 60, 70, 60, 70 )
+region = Rect2( 171, 0, 57, 56 )
 
 [sub_resource type="SpriteFrames" id=28]
 animations = [ {
@@ -396,22 +397,22 @@ animations = [ {
 [sub_resource type="AtlasTexture" id=40]
 flags = 4
 atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 60, 70 )
+region = Rect2( 0, 0, 57, 56 )
 
 [sub_resource type="AtlasTexture" id=41]
 flags = 4
 atlas = ExtResource( 6 )
-region = Rect2( 60, 0, 60, 70 )
+region = Rect2( 57, 0, 57, 56 )
 
 [sub_resource type="AtlasTexture" id=42]
 flags = 4
 atlas = ExtResource( 6 )
-region = Rect2( 0, 70, 60, 70 )
+region = Rect2( 114, 0, 57, 56 )
 
 [sub_resource type="AtlasTexture" id=43]
 flags = 4
 atlas = ExtResource( 6 )
-region = Rect2( 60, 70, 60, 70 )
+region = Rect2( 171, 0, 57, 56 )
 
 [sub_resource type="SpriteFrames" id=22]
 animations = [ {
@@ -430,7 +431,7 @@ radius = 29.0172
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
 
-[node name="Background" type="TileMap" parent="."]
+[node name="BG" type="TileMap" parent="."]
 tile_set = SubResource( 29 )
 cell_size = Vector2( 50, 50 )
 show_collision = true
@@ -454,10 +455,10 @@ texture_scale = 20.0
 energy = 0.7
 
 [node name="Entrance" type="AnimatedSprite" parent="."]
-position = Vector2( 86, 1771 )
-scale = Vector2( 2.2, 2.2 )
+position = Vector2( 80, 1763 )
+scale = Vector2( 1.97719, 1.90357 )
 frames = SubResource( 28 )
-frame = 1
+frame = 2
 playing = true
 __meta__ = {
 "_edit_group_": true
@@ -472,7 +473,7 @@ energy = 0.6
 
 [node name="Player_Container" type="Node2D" parent="."]
 script = ExtResource( 4 )
-initial_position = Vector2( 86, 1771 )
+initial_position = Vector2( 80, 1763 )
 
 [node name="Enemies" type="Node2D" parent="."]
 script = ExtResource( 1 )
@@ -481,7 +482,6 @@ bat_spawn = Vector2( 425, -1374 )
 [node name="Skeleton" parent="Enemies" instance=ExtResource( 13 )]
 position = Vector2( 649, 1536 )
 scale = Vector2( 1.2, 1.2 )
-walking = 100
 path = [ Vector2( 35, 1538 ), Vector2( 650, 1538 ) ]
 
 [node name="Skeleton2" parent="Enemies" instance=ExtResource( 13 )]
@@ -685,11 +685,9 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Portal3"]
 frames = SubResource( 22 )
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal3"]
-position = Vector2( 0, -7 )
 shape = SubResource( 23 )
 
 [node name="PortalLight" type="Light2D" parent="Portal3"]
@@ -703,24 +701,29 @@ energy = 0.6
 current = true
 limit_left = 0
 limit_top = 0
-limit_right = 2510
-limit_bottom = 1970
+limit_right = 2500
+limit_bottom = 1900
 script = ExtResource( 2 )
 
 [node name="UI" parent="." instance=ExtResource( 9 )]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-volume_db = -8.0
+volume_db = -4.0
 autoplay = true
 
 [node name="Coin_Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
-volume_db = -8.0
+volume_db = -12.0
+pitch_scale = 0.8
 
 [node name="Shoot" type="AudioStreamPlayer" parent="."]
 
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+volume_db = -8.0
+
 [node name="Darkness" type="CanvasModulate" parent="."]
-color = Color( 0.239216, 0.286275, 0.243137, 1 )
+color = Color( 0.176471, 0.211765, 0.180392, 1 )
 
 [connection signal="body_entered" from="Portal3" to="Portal3" method="_on_Portal_body_entered"]

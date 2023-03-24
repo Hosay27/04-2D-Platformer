@@ -8,7 +8,7 @@ export var running = 1000
 export var path = [Vector2(0,0), Vector2(0,0)]
 var velocity = Vector2.ZERO
 var direction = 1
-var health = 20
+var health = 9
 
 
 func _ready():

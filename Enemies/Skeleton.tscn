@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://StateMachine/Die.gd" type="Script" id=1]
 [ext_resource path="res://StateMachine/Goblin_Attack.gd" type="Script" id=2]
@@ -10,25 +10,30 @@
 [ext_resource path="res://Assets/skeleton.png" type="Texture" id=8]
 [ext_resource path="res://Assets/skeleton_attack.png" type="Texture" id=9]
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=19]
 flags = 4
 atlas = ExtResource( 9 )
-region = Rect2( 0, 0, 100, 100 )
+region = Rect2( 0, 0, 80, 99 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=20]
 flags = 4
 atlas = ExtResource( 9 )
-region = Rect2( 100, 0, 100, 100 )
+region = Rect2( 80, 0, 80, 99 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=21]
 flags = 4
 atlas = ExtResource( 9 )
-region = Rect2( 200, 0, 100, 100 )
+region = Rect2( 160, 0, 80, 99 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=22]
 flags = 4
 atlas = ExtResource( 9 )
-region = Rect2( 300, 0, 100, 100 )
+region = Rect2( 240, 0, 80, 99 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 320, 0, 80, 99 )
 
 [sub_resource type="AtlasTexture" id=5]
 flags = 4
@@ -87,7 +92,7 @@ region = Rect2( 400, 0, 100, 100 )
 
 [sub_resource type="SpriteFrames" id=16]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 4 ), SubResource( 4 ) ],
+"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
 "loop": false,
 "name": "Attack",
 "speed": 5.0
@@ -115,6 +120,8 @@ script = ExtResource( 5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 16 )
 animation = "Attack"
+frame = 4
+playing = true
 
 [node name="Effect" type="AnimationPlayer" parent="AnimatedSprite"]
 anims/Hurt = ExtResource( 6 )

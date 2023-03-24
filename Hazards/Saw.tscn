@@ -1,13 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Saw.png" type="Texture" id=1]
 [ext_resource path="res://Hazards/Saw.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Explosion.png" type="Texture" id=3]
-
-[sub_resource type="Curve2D" id=5]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 48, -384, 0, 0, 0, 0, 48, -576, 0, 0, 0, 0, 416, -576, 0, 0, 0, 0, 416, -384, 0, 0, 0, 0, 48, -384 )
-}
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 27.074
@@ -18,7 +13,7 @@ colors = PoolColorArray( 0.290196, 0.290196, 0.290196, 1, 0.145508, 0.145508, 0.
 
 [sub_resource type="Animation" id=6]
 resource_name = "Bounce"
-length = 8.0
+length = 4.0
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("PathFollow2D:unit_offset")
@@ -27,7 +22,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 4 ),
+"times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
@@ -66,10 +61,10 @@ tracks/0/keys = {
 }
 
 [node name="Saw" type="Path2D"]
-curve = SubResource( 5 )
+curve = null
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2( 48, -384 )
+position = Vector2( 2, 2 )
 rotate = false
 
 [node name="Enemy" type="Node2D" parent="PathFollow2D"]
@@ -85,15 +80,17 @@ texture = ExtResource( 1 )
 shape = SubResource( 2 )
 
 [node name="Sparks" type="CPUParticles2D" parent="PathFollow2D/Enemy"]
-position = Vector2( 0.769234, -2.30771 )
 scale = Vector2( 0.769231, 0.769231 )
 amount = 10
 lifetime = 0.3
 randomness = 1.0
 texture = ExtResource( 3 )
 emission_shape = 1
-emission_sphere_radius = 5.0
-initial_velocity = 400.0
+emission_sphere_radius = 10.0
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 100 )
+initial_velocity = 300.0
 initial_velocity_random = 1.0
 scale_amount = 0.2
 color_ramp = SubResource( 7 )

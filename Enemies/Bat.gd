@@ -7,7 +7,7 @@ onready var ray = $See
 export var speed = 150
 export var looking_speed = 70
 var line_of_sight = false
-var health = 6
+var health = 3
 var damage = 2
 
 var mode = ""

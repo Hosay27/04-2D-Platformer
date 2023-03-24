@@ -40,10 +40,10 @@ animations = [ {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
-frame = 2
+frame = 4
 playing = true
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 1 )
-texture_scale = 10.0
-energy = 0.9
+texture_scale = 8.0
+energy = 0.7

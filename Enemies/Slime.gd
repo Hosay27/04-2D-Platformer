@@ -10,7 +10,7 @@ var velocity = Vector2.ZERO
 export var direction = 1
 export var score = 20
 export var damage = 1
-export var health = 2
+export var health = 3
 
 func _ready():
 	position = path[0]
@@ -44,7 +44,7 @@ func _on_Above_and_Below_body_entered(body):
 		collision_layer = 0
 		collision_mask = 0
 		body.hit(damage)
-		hit(2)
+		hit(100)
 
 
 func _on_AnimatedSprite_animation_finished():

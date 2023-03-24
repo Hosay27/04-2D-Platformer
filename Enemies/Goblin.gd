@@ -6,8 +6,8 @@ onready var Attack = load("res://Attacks/Enemy_Arrow.tscn")
 
 export var walking = 200
 export var running = 1000
-export var path = [Vector2(4100,1120), Vector2(5250,1120)]
-export var health = 7
+export var path = [Vector2(0,0), Vector2(0,0)]
+export var health = 6
 var velocity = Vector2.ZERO
 export var direction = 1
 export var score = 100

@@ -7,7 +7,7 @@ onready var Attack = load("res://Attacks/Bone.tscn")
 export var walking = 200
 export var running = 1000
 export var path = [Vector2(0,0), Vector2(0,0)]
-export var health = 7
+export var health = 6
 var velocity = Vector2.ZERO
 export var direction = 1
 export var score = 250
@@ -51,7 +51,7 @@ func attack_target():
 	print("attack")
 	var attack = Attack.instance()
 	attack.position = global_position
-	attack.position.x += 40*direction
+	attack.position.x += 50*direction
 	attack.direction = direction
 	get_node("/root/Game/Attack_Container").add_child(attack)
 	var shoot = get_node_or_null("/root/Game/Shoot")

@@ -96,7 +96,6 @@ anims/RESET = SubResource( 27 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, -10 )
 texture_scale = 8.0
-energy = 0.9
 
 [node name="Bounce" type="AnimationPlayer" parent="Light2D"]
 anims/Bounce = SubResource( 22 )

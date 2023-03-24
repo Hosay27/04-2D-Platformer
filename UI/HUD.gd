@@ -1,12 +1,12 @@
 extends Control
 
 onready var hp_bar = $HealthBar
-onready var healthy = $Full
-onready var low = $Low
+onready var icon = $Icon
 onready var tween = $Tween
 
 func update_score():
 	$Score.text = "Score: " + str(Global.score)
+
 
 func update_health():
 	#print(Global.health)
@@ -15,22 +15,16 @@ func update_health():
 	#tween.start()
 	if hp_bar.value > 7:
 		hp_bar.tint_progress = Color8(0,255,2)
-		healthy.show()
-		low.hide()
+		icon.set_animation("Green")
 	elif hp_bar.value <= 7 and hp_bar.value > 4:
 		hp_bar.tint_progress = Color8(255,255,0)
-		healthy.hide()
-		low.show()
+		icon.set_animation("Yellow")
 	elif hp_bar.value <= 4:
 		hp_bar.tint_progress = Color8(255,0,0)
+		icon.set_animation("Red")
 
 func update_lives():
 	$Lives.text = "x" + str(Global.lives)
-	if Global.lives >= 2:
-		$Heart.set_animation("Normal")
-	else:
-		$Heart.set_animation("Low")
-		
 
 func _physics_process(_delta):
 	update_score()

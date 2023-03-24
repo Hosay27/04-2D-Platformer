@@ -9,7 +9,7 @@ func _ready():
 	pass
 
 func _physics_process(_delta):
-	velocity.x += speed
+	velocity.y -= speed
 	position += velocity
 
 func _on_Cannonball_body_entered(body):

@@ -2,6 +2,7 @@ extends StaticBody2D
 onready var Attack = load("res://Attacks/Cannonball.tscn")
 
 export var direction = 1
+export var spawn = Vector2(0,0)
 
 func _ready():
 	$Timer.start()
@@ -19,7 +20,7 @@ func _on_Timer_timeout():
 		shoot.play()
 	var attack = Attack.instance()
 	attack.position = global_position
-	attack.position.x += 40*direction
+	attack.position += spawn
 	#attack.direction = direction
 	get_node("/root/Game/Attack_Container").add_child(attack)
 	$Timer.start()

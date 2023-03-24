@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/PixeloidSansBold-GOjpP.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI/Main_Menu.gd" type="Script" id=2]
 [ext_resource path="res://UI/UI.tres" type="Theme" id=3]
 [ext_resource path="res://UI/Main_Screen.tres" type="Theme" id=4]
+[ext_resource path="res://Assets/Catch The Mystery.mp3" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -42,7 +43,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -263.0
 custom_fonts/font = SubResource( 1 )
-text = "Knight's Adventure"
+text = "Adventure"
 align = 1
 valign = 1
 
@@ -52,24 +53,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -70.0
-margin_top = -40.0
+margin_top = -20.0
 margin_right = 70.0
-margin_bottom = 2.0
+margin_bottom = 22.0
 theme = ExtResource( 3 )
 custom_fonts/font = SubResource( 2 )
 text = "Play"
-
-[node name="Arena" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -70.0
-margin_top = 20.0
-margin_right = 70.0
-margin_bottom = 62.0
-theme = ExtResource( 3 )
-text = "Arena"
 
 [node name="Quit" type="Button" parent="."]
 anchor_left = 0.5
@@ -77,15 +66,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -70.0
-margin_top = 90.0
+margin_top = 50.0
 margin_right = 70.0
-margin_bottom = 132.0
+margin_bottom = 92.0
 theme = ExtResource( 3 )
 text = "Quit"
 
-[node name="Menu_Music" type="AudioStreamPlayer2D" parent="."]
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = 4.0
 max_distance = 5000.0
 
 [connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
-[connection signal="pressed" from="Arena" to="." method="_on_Bonus_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]

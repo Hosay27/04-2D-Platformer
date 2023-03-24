@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/CrEEP.mp3-c4c5cec6fb632dde7f81c8a84e95665a.mp3str"
+
+[deps]
+
+source_file="res://Assets/CrEEP.mp3"
+dest_files=[ "res://.import/CrEEP.mp3-c4c5cec6fb632dde7f81c8a84e95665a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

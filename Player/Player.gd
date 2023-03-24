@@ -18,8 +18,8 @@ export var max_move = 300
 export var jump_speed = 230
 export var max_jump = 950
 
-export var leap_speed = 150
-export var max_leap = 1800
+export var leap_speed = 250
+export var max_leap = 1000
 
 export var time_a = 1
 #var damage = 2
@@ -40,14 +40,12 @@ func _physics_process(_delta):
 		if direction < 0 and not $AnimatedSprite.flip_h: 
 			$AnimatedSprite.flip_h = true
 
-
 		if direction > 0 and $AnimatedSprite.flip_h:
 			$AnimatedSprite.flip_h = false
-
 	
 	if is_on_floor():
 		double_jumped = false
-		if Input.is_action_just_pressed("attack"):
+		if Input.is_action_just_pressed("fire"):
 			SM.set_state("Attack")
 
 	#if is_on_moving_platform == true:
@@ -66,9 +64,11 @@ func move_vector():
 func _unhandled_input(event):
 	if event.is_action_pressed("left"):
 		direction = -1
+		$AnimatedSprite.offset.x = -10
 
 	if event.is_action_pressed("right"):
 		direction = 1
+		$AnimatedSprite.offset.x = 0
 
 
 func set_animation(anim):
@@ -89,16 +89,14 @@ func is_on_floor():
 
 func attack():
 	var attack = Attack.instance()
-	attack.position = global_position
-	attack.position.x += 40*direction
+	attack.position = global_position + Vector2(3,10)
 	attack.direction = direction
 	get_node("/root/Game/Attack_Container").add_child(attack)
-
 
 func hit(d):
 	if inv_time.is_stopped():
 		inv_time.start()
-		Global.decrease_hp(d)
+		Global.update_hp(d)
 		effects.play("Hurt")
 		effects.queue("Flash")
 		if Global.health <= 0:

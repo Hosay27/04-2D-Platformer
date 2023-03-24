@@ -9,7 +9,7 @@ func _ready():
 func start():
 	player.set_animation("Jumping")
 	player.jump_power = Vector2.ZERO
-	var jump = get_node_or_null("/root/Game/Player_Container/Player/Jump")
+	var jump = get_node_or_null("/root/Game/Jump")
 	#print(jump)
 	if jump != null:
 		jump.play()
