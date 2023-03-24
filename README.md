@@ -9,7 +9,7 @@ Description
 
 - W to jump, hold it for a higher jump
 
-- Q for a fireball and E for an icicle to damage enemies
+- Space to shoot a fireball
 
 ## Implementation
 Which features you included
