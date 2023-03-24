@@ -1,6 +1,5 @@
 # Project Name
 
-Context and date
 2D Platformer made with Godot
 25 March 2023
 
@@ -13,7 +12,14 @@ Description
 - Space to shoot a fireball
 
 ## Implementation
-Which features you included
+
+- most sprites made by me
+
+- 3 levels
+
+- music and sound effects
+
+- light 2d used in level 3
 
 ## References
 - [8 bit font] https://www.fontspace.com/pixeloid-font-f69232
