@@ -6,7 +6,7 @@ Context and date
 
 Description
 
--A and D to move left and right
+- A and D to move left and right
 
 - W to jump, hold it for a higher jump
 
