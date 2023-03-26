@@ -458,7 +458,7 @@ energy = 0.7
 position = Vector2( 80, 1763 )
 scale = Vector2( 1.97719, 1.90357 )
 frames = SubResource( 28 )
-frame = 2
+frame = 1
 playing = true
 __meta__ = {
 "_edit_group_": true
@@ -685,6 +685,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Portal3"]
 frames = SubResource( 22 )
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal3"]

@@ -15,7 +15,7 @@ export var gravity = Vector2(0, 1)
 export var move_speed = 60
 export var max_move = 300
 
-export var jump_speed = 230
+export var jump_speed = 200
 export var max_jump = 950
 
 export var leap_speed = 250

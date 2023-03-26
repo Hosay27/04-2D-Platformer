@@ -170,7 +170,7 @@ animations = [ {
 "frames": [ SubResource( 67 ), SubResource( 68 ), SubResource( 69 ) ],
 "loop": false,
 "name": "Attack",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [ SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ) ],
 "loop": false,
@@ -290,7 +290,7 @@ one_shot = true
 script = ExtResource( 13 )
 
 [node name="Timer" type="Timer" parent="StateMachine/Attack"]
-wait_time = 0.2
+wait_time = 0.15
 one_shot = true
 
 [node name="Die" type="Node" parent="StateMachine"]

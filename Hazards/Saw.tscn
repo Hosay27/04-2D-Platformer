@@ -80,6 +80,7 @@ texture = ExtResource( 1 )
 shape = SubResource( 2 )
 
 [node name="Sparks" type="CPUParticles2D" parent="PathFollow2D/Enemy"]
+visible = false
 scale = Vector2( 0.769231, 0.769231 )
 amount = 10
 lifetime = 0.3
